@@ -23,6 +23,7 @@ int main() {
 Print the current timestamp in rfc3339 format:
 ```c
 #include <stdio.h>
+#define RFC3339_IMPL
 #include "rfc3339.h"
 
 int main() {
@@ -38,6 +39,7 @@ int main() {
 Parse a rfc3339 formatted timestamp:
 ```c
 #include <stdio.h>
+#define RFC3339_IMPL
 #include "rfc3339.h"
 
 int main() {
@@ -52,6 +54,7 @@ int main() {
 Parse and convert the timestamp in unix timestamp (with fracsec and timezone support):
 ```c
 #include <stdio.h>
+#define RFC3339_IMPL
 #include "rfc3339.h"
 
 int main() {
