@@ -38,6 +38,7 @@ int rfc3339time_from_secs(time_t secs, rfc3339time* time);
 suseconds_t rfc3339time_as_us(const rfc3339time* time);
 int rfc3339time_from_us(suseconds_t us, rfc3339time* time);
 
+#endif // RFC3339_H
 
 #ifdef RFC3339_IMPL
 
@@ -112,4 +113,3 @@ int rfc3339time_from_us(suseconds_t us, rfc3339time* time) {
 }
 
 #endif // RFC3339_IMPL
-#endif // RFC3339_H
