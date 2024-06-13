@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define RFC3339_IMPL
 #include "../rfc3339.h"
 
 int main() {
