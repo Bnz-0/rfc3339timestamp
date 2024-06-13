@@ -7,6 +7,17 @@ This small library uses `struct tm` and some function in `time.h` to store and m
 ## Dependencies
 - libc
 
+## Installation
+This is a single header lib, so just copy `rfc3339.h` in your project.
+In the main you have to include it and define `RFC3339_IMPL` like this:
+```c
+#define RFC3339_IMPL
+#include "rfc3339.h"
+
+int main() {
+	...
+```
+
 ## Examples
 
 Print the current timestamp in rfc3339 format:

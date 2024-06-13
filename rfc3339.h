@@ -30,6 +30,17 @@ typedef struct {
 	suseconds_t secfrac_us;
 } rfc3339time;
 
+
+int rfc3339time_parse(const char* str, rfc3339time* time);
+int rfc3339time_fmt(char* str, size_t str_len, const rfc3339time* time);
+time_t rfc3339time_as_secs(const rfc3339time* time);
+int rfc3339time_from_secs(time_t secs, rfc3339time* time);
+suseconds_t rfc3339time_as_us(const rfc3339time* time);
+int rfc3339time_from_us(suseconds_t us, rfc3339time* time);
+
+
+#ifdef RFC3339_IMPL
+
 int rfc3339time_parse(const char* str, rfc3339time* time) {
 	int y=0,M=0,d=0,h=0,m=0;
 	double s = 0.0;
@@ -100,4 +111,5 @@ int rfc3339time_from_us(suseconds_t us, rfc3339time* time) {
 	return rfc3339time_from_secs(secs, time);
 }
 
-#endif
+#endif // RFC3339_IMPL
+#endif // RFC3339_H

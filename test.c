@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <string.h>
+#define RFC3339_IMPL
 #include "rfc3339.h"
 
 void test_from_str(const char* str, const char* expected, time_t secs_expected, suseconds_t us_expected) {
