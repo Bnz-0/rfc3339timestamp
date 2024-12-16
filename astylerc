@@ -1,0 +1,7 @@
+--style=kr
+-n
+-p
+-xg
+-k1
+--indent=tab
+--keep-one-line-blocks
