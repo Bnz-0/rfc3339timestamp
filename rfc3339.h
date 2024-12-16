@@ -80,21 +80,23 @@ int rfc3339time_fmt(char* str, size_t str_len, const rfc3339time* time) {
 	size_t fracsec_len_total = snprintf(&str[fmt_len], str_len-fmt_len, "%09.6f", (double)time->datetime.tm_sec + time->secfrac_us / 1000000.0);
 	if(fracsec_len_total == 0) return 0;
 
-  size_t digits_to_remove = 0;
+	size_t digits_to_remove = 0;
 
-  // we start checking if there is a 0 from the end 
-  // because it's gonna be much more common to have 
-  // trailing digits than trailing zeros.
-  // Potentially we can remove up to 7 character including the .
+	// we start checking if there is a 0 from the end 
+	// because it's gonna be much more common to have 
+	// trailing digits than trailing zeros.
+	// Potentially we can remove up to 7 character including the .
 
 	for (size_t i = 0; i < 7; i++) {
     	char c = str[fmt_len + fracsec_len_total - 1 - i];
-    		if (c == '0' || c == '.') {
-      	digits_to_remove++;
-    	} else {
+
+    	if (c == '0' || c == '.') {
+      		digits_to_remove++;
+    	} 
+    	else {
       		break;
 		}
-    }
+	}
 
 	fmt_len += fracsec_len_total - (digits_to_remove);
 	str[fmt_len] = 'Z';
@@ -108,8 +110,8 @@ int rfc3339time_fmt(char* str, size_t str_len, const rfc3339time* time) {
 		if(snprintf(&str[fmt_len-1], str_len-fmt_len, "%+.2d:%.2d", h, m) == 0)
 			return 0;
 	} else {
-      str[fmt_len] = '\0';
-  }
+		str[fmt_len] = '\0';
+ 	}
 	return 1;
 }
 
