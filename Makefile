@@ -14,5 +14,13 @@ examples: rfc3339.h $(EXAMPLES)
 $(EXAMPLES_DIR)/%: $(EXAMPLES_DIR)/%.c
 	$(CC) $(STD) $(FLAGS) $< -o $@
 
+# require astyle
+format:
+	astyle --project=./astylerc rfc3339.h test.c
+
+# require cppcheck
+check:
+	cppcheck --check-level=exhaustive rfc3339.h
+
 clean:
 	rm -f test $(EXAMPLES)
