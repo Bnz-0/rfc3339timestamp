@@ -21,6 +21,7 @@
 //
 // Changelog:
 //
+// - 2.0.1    Fix timezone conversion to UTC
 // - 2.0.0    Add support for nanoseconds
 //            New functions rfc3339time_as/from_ns
 //            New functions rfc3339time_as/from_ms
@@ -172,7 +173,7 @@ time_t rfc3339time_as_secs(const rfc3339time* time)
 {
 	// timegm() may modify time->datetime
 	struct tm t = time->datetime;
-	return timegm(&t) + time->datetime.tm_gmtoff;
+	return timegm(&t) - time->datetime.tm_gmtoff;
 }
 
 int rfc3339time_from_secs(time_t secs, rfc3339time* time)
