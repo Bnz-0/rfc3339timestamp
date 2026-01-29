@@ -1,3 +1,9 @@
+
+### ⚠️ Repo moved to Codeberg: https://codeberg.org/bnz/rfc3339timestamp ⚠️
+
+---
+---
+
 # RFC 3339 time parser and formatter
 
 A single C header utility to parse and format [RFC 3339 timestamps](https://www.rfc-editor.org/rfc/rfc3339.html).
